@@ -3,7 +3,7 @@
 El repositorio de `solo-recreo` es un laboratorio de el programa `just` que se
 usa con interfaz en un terminal. Los ejemplos y guiones que están aquí son
 diferente maneras de configurar proyectos usando `just` pa' varias cosas y
-casos. Unos ejemplos siguen pronto:
+casos. Unos ejemplos siguen:
 
 - Creando nuevos archivos de tipos de documentación como decisiones (ADR),
   libros de pasados (run books), y más usando un modelo o patrón.
