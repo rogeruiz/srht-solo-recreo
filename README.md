@@ -35,7 +35,7 @@ Con este tipo de separación, las recetas `just` y los guiones escritos en
 JavaScript están en su propio archivo. Una cosa de tomar en cuenta es que por
 esta razón, los variables que se capturan en `just` para usarlos en el guion
 leído en las recetas se tienen que definir antes de leer el archivo con los
-guiones. [Lea más sobre shebangs](#shebang-recipes).
+guiones. [Lea más sobre shebangs](#recetas-usando-shebang).
 
 ### Utilizando varias veces las mismas variables
 
