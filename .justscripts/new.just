@@ -1,4 +1,4 @@
-here := justfile_directory() + '/.justscripts/new.just'
+set windows-shell := ['powershell.exe', '-NoLogo', '-Command']
 
 alias help := default
 alias h := default
@@ -8,7 +8,7 @@ alias g := guides
 
 [private]
 @default:
-    just --list --justfile {{ here }}
+    just --list --justfile '{{ justfile_directory() }}/.justscripts/new.just'
 
 [doc('Create a new decision from the Markdown template found in docs/decisions/.template')]
 @decisions title:
