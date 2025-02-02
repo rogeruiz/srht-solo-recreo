@@ -34,8 +34,10 @@ node_shebang := if os_family() == "windows" { " node" } else { "/usr/bin/env nod
 [private]
 _create title type folder:
     #!{{ node_shebang }}
-    // NOTE: Variables hosted here are coming from `just`.
-    // es: Variables definado aquí vienen desde `just`.
+    // NOTE: Variables are hoisted here are coming from `just` and are used in
+    // the file being read.
+    // es: Variables definado aquí vienen desde `just` y se usan en el archivo
+    // que estamos leyendo.
     const title = "{{ title }}"
     const fileTitle = "{{ kebabcase(title) }}"
     const type = "{{ type }}"
