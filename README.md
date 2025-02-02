@@ -2,7 +2,7 @@
 
 > ❗ **Important**
 >
-> Read this in [English](#just-recess)
+> Read this in [English](#just-recess).
 
 El repositorio de `solo-recreo` es un laboratorio de el programa `just` que se
 usa con interfaz en un terminal. Los ejemplos y guiones que están aquí son
@@ -40,15 +40,6 @@ JavaScript están en su propio archivo. Una cosa de tomar en cuenta es que por
 esta razón, los variables que se capturan en `just` para usarlos en el guion
 leído en las recetas se tienen que definir antes de leer el archivo con los
 guiones. [Lea más sobre shebangs](#recetas-usando-shebang).
-
-### Utilizando varias veces las mismas variables
-
-Normalmente, `just` no lo deja a uno usar las mismas variables varias veces.
-Este proyecto usa el ajuste para controlar el uso de variables duplicados.
-
-```just
-set allow-duplicate-variables := true
-```
 
 ### Recetas usando shebang
 
@@ -104,22 +95,6 @@ of separation, the `just` recipes and the JavaScript scripts are stored in their
 appropriate file. Something to have in mind, variables that are set from `just`
 need to be defined before the script file is read into the recipe. [Read more
 about shebangs](#shebang-recipes).
-
-### Using variables multiple times
-
-Normally, `just` doesn't allow for the same variables to be defined multiple
-times. This project makes use of a setting to control duplicate variables.
-
-```just
-set allow-duplicate-variables := true
-```
-
-This is used to be able to create abstractions around re-usable recipes with
-arguments. These kinds of recipes are nice because they support leveraging a
-re-usable interface to create different kinds of documentation automatically
-with templates. The creation code is written as a shebang recipe written in
-JavaScript for cross-os support for Windows, Linux, & macOS compatibility. This
-I've found important on diverse computing teams.
 
 ### Shebang recipes
 

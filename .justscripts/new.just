@@ -22,19 +22,21 @@ alias g := guides
 @guides title:
     just --justfile {{ justfile() }} new _create "{{ title }}" "guide" "docs/guides"
 
-# README: This is here to support Shebang recipes across operating systems.
-# https://just.systems/man/en/chapter_43.html
+# README: This is here to support NodeJS shebang recipes across operating
+# systems. https://just.systems/man/en/chapter_43.html
 
 node_shebang := if os_family() == "windows" { " node" } else { "/usr/bin/env node" }
 
-# NOTE: The recipe below named `_new` is **only** called from other Justfiles
-# that create files from .template files found next to them. Currently it's
-# used in `docs/guides`, `docs/runbooks`, and `docs/decisions`.
+# HACK: The private recipe below named `_create` is **only** called from other
+# recipes that create files from .template files found in the folder passed
+# into them.
+# It also uses `read()` to pull in language specific scripts that are in-lined
+# in the recipe.
 
 [private]
 _create title type folder:
     #!{{ node_shebang }}
-    // NOTE: Variables are hoisted here are coming from `just` and are used in
+    // en: Variables are hoisted here are coming from `just` and are used in
     // the file being read.
     // es: Variables definado aquí vienen desde `just` y se usan en el archivo
     // que estamos leyendo.
