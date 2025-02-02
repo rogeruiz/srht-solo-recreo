@@ -20,11 +20,15 @@ Este proyecto sigue la version mas reciente de `just`: [1.39.0](https://github.c
 
 Este repositorio se puede usar como un ejemplo vivo pa' como se debe organizar
 los archivos y recetas para un proyecto maduro usando la herramienta `just`.
-Las recetas de `just` se pueden escribir así: `just <receta> [parámetros]`. Las
-carpeta de `.justscripts/` se usa para guardar y esconder los archivos que se
-pueden crear pa' extender las funciones de `just` con módulos pa' crear comandos
-secundarios. Este tipo de receta se puede escribir así: `just <módulo> <receta>
-[parámetros]`.
+
+Las recetas de `just` se escribir así: `just <receta> [parámetros]`.
+
+Las carpeta de `.justscripts/` se usa para guardar y esconder los archivos que
+se pueden crear pa' extender las funciones de `just` con módulos pa' crear
+comandos secundarios. Esto ayuda a separar las recetas de una manera más
+practica.
+
+Este tipo de receta se escribir así: `just <módulo> <receta> [parámetros]`.
 
 ### Carpetas adentro de `.justscripts/`
 
@@ -81,11 +85,15 @@ This project follows the most recent version of `just`: [1.39.0](https://github.
 ## Architecture
 
 This repository can be used as an live-example for how to organize files and
-recipes for a mature project that utilizes `just`. The `just` recipes are
-written like: `just <recipe> [arguments]`. The directory `.justscripts/` is used
-to organize and separate the files that you can create to extend `just`
-functionality using modules to create sub-commands. This kind of recipe is
-written like: `just <module> <recipe> [arguments]`.
+recipes for a mature project that utilizes `just`.
+
+The `just` recipes are written like: `just <recipe> [arguments]`.
+
+The directory `.justscripts/` is used to organize and separate the files that
+you can create to extend `just` functionality using modules to create
+sub-commands. This helps in separating recipes in practical ways.
+
+This kind of recipe is written like: `just <module> <recipe> [arguments]`.
 
 ### Folders inside of `.justscripts/`
 
