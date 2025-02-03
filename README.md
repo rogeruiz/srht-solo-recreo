@@ -1,8 +1,8 @@
 # Sólo recreo
 
-> ❗ **Important**
+> 👀 **Look**
 >
-> Read this in [English](#just-recess).
+> To read this in [English, click here](#just-recess).
 
 El repositorio de `solo-recreo` es un laboratorio de el programa `just` que se
 usa con interfaz en un terminal. Los ejemplos y guiones que están aquí son
