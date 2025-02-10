@@ -1,4 +1,4 @@
-# Sólo recreo :: Just recess
+# Recetas pa' chequear :: Checking recipes
 # Public Domain (CC0) 2025 Roger Steve Ruiz
 #
 # This program is free software: you can redistribute it and/or modify it
@@ -24,25 +24,30 @@
 # You should have received a copy of the CC0 1.0 Universal License along with
 # this program. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
 
-set windows-shell := ['powershell.exe', '-NoLogo', '-Command']
-
 alias help := default
 alias h := default
 
 [private]
 @default:
-    just --list
+    just --list check
 
-mod new '.justscripts/new.just'
-mod ch './.justscripts/check.just'
-mod check './.justscripts/check.just'
+pass_emoji := "✅"
+fail_emoji := "❌"
 
-[doc('Format justfiles in project using `git`, `grep`, and `just --fmt using `/bin/sh`')]
+[doc("Checks for CLI tool")]
 [unix]
-@fmt:
-    for file in $(git status --porcelain | grep '^M' | grep -o -E '[a-zA-Z_0-9\./]*justfile'); do if [[ -n $file ]]; then just --justfile=$file --fmt --unstable; fi; done
+cli app docs="https://example.com/docs/install":
+    #!/usr/bin/env bash
+    set -uo pipefail
+    bold=$(tput bold)
+    normal=$(tput sgr0)
+    italic=$(tput sitm)
 
-[doc('Format justfiles in project using `git`, `Select-String`, `ForEach-Object` using powershell.exe')]
-[windows]
-@fmt:
-    (git status --porcelain | Select-String -Pattern '^M' -Raw | Select-String -Pattern '[\d\w/\.]*justfile').Matches.Value | ForEach-Object -Process { if ($_) { just.exe --justfile=$_ --fmt --unstable } }
+    if [[ -x $(which {{ app }}) ]]
+    then
+      echo "{{ pass_emoji }} ${italic}\`{{ app }}\`${normal} is ${bold}installed${normal}"
+      exit
+    else
+      echo "{{ fail_emoji }} Please install ${italic}\`{{ app }}\`${normal}: ${bold}{{ docs }}${normal}"
+      exit 2
+    fi
