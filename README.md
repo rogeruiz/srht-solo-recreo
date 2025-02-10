@@ -13,6 +13,9 @@ casos. Unos ejemplos siguen:
   libros de pasos (run books), y más usando un modelo o patrón.
 - Usando una lengua de programación para recetas que usen archivos guion escrito
   en archivos separados de los archivos de `just`.
+- Varios ejemplos de guiones tipo haga-nada (do-nothing) que establecen
+  practicas para automatización que no esta automatizado ahorra y se puede
+  automatizar gradualmente. [Más sobre este tema esta escrito aquí][haga-nada].
 
 Este proyecto sigue la version mas reciente de `just`: [1.39.0](https://github.com/casey/just/releases/tag/1.39.0)
 
@@ -70,6 +73,9 @@ of cases. Some examples follow:
   and more using templates or patterns.
 - Using a programming language for recipes that use script files written in
   files separate from the `just` files.
+- Various examples of do-nothing scripts that establish best-practices for
+  automation that is not automated yet and can be further automated gradually.
+  [Read more about this here][haga-nada].
 
 This project follows the most recent version of `just`: [1.39.0](https://github.com/casey/just/releases/tag/1.39.0)
 
@@ -112,3 +118,5 @@ This technique is what current powers the following recipes in this project.
 
 This kind of abstraction can be used for recipes that are going to be re-used
 and mostly need a way to configure options for the recipe run.
+
+[haga-nada]: https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/
