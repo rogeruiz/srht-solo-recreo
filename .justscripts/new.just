@@ -11,14 +11,17 @@ alias g := guides
     just --list --justfile '{{ justfile_directory() }}/.justscripts/new.just'
 
 [doc('Create a new decision from the Markdown template found in docs/decisions/.template')]
+[group('docs')]
 @decisions title:
     just --justfile {{ justfile() }} new _create "{{ title }}" "decision record" "docs/decisions"
 
 [doc('Create a new run book from the Markdown template found in docs/run-books/.template')]
+[group('docs')]
 @run-books title:
     just --justfile {{ justfile() }} new _create "{{ title }}" "run book" "docs/run-books"
 
 [doc('Create a new run book from the Markdown template found in docs/guides/.template')]
+[group('docs')]
 @guides title:
     just --justfile {{ justfile() }} new _create "{{ title }}" "guide" "docs/guides"
 
