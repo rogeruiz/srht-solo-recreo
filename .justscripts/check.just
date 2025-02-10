@@ -36,6 +36,7 @@ fail_emoji := "❌"
 
 [doc("Checks for CLI tool")]
 [unix]
+[group('terminal')]
 cli app docs="https://example.com/docs/install":
     #!/usr/bin/env bash
     set -uo pipefail

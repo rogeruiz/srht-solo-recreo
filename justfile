@@ -34,7 +34,12 @@ alias h := default
     just --list
 
 mod new '.justscripts/new.just'
+
+# Alias for `check` recipes'
+[group('utils')]
 mod ch './.justscripts/check.just'
+# Recipes for checking things
+[group('utils')]
 mod check './.justscripts/check.just'
 
 [doc('Format justfiles in project using `git`, `grep`, and `just --fmt using `/bin/sh`')]
