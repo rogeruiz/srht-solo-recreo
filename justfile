@@ -35,6 +35,13 @@ alias h := default
 
 mod new '.justscripts/new.just'
 
+# Alias for `run-book` recipes
+[group('docs')]
+mod rb './.justscripts/run-book.just'
+# Recipes for performing actions within run book documentation
+[group('docs')]
+mod run-book './.justscripts/run-book.just'
+
 # Alias for `check` recipes'
 [group('utils')]
 mod ch './.justscripts/check.just'
