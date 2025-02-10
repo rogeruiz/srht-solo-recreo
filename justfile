@@ -33,7 +33,12 @@ alias h := default
 @default:
     just --list
 
-mod new '.justscripts/new.just'
+# Alias for `new` recipes
+[group('docs')]
+mod n './.justscripts/new.just'
+# Recipes for creating files
+[group('docs')]
+mod new './.justscripts/new.just'
 
 # Alias for `run-book` recipes
 [group('docs')]
