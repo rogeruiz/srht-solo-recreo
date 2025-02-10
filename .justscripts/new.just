@@ -45,4 +45,4 @@ _create title type folder:
     const type = "{{ type }}"
     const normalizedPath = "{{ replace(justfile_directory(), '\', '/') }}"
     const folderPath = "{{ folder }}"
-    {{ read('./create.js') }}
+    {{ read('./js/create.js') }}

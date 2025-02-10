@@ -34,12 +34,12 @@ Este tipo de receta se escribir así: `just <módulo> <receta> [parámetros]`.
 
 Esta carpeta se puede organizar de cualquier manera. Lo que recomendó es poner
 los guiones adentro de carpetas nombradas por la lengua de programación. Así es
-que los guiones escritos pa' Node.js se ponen en una carpeta nombrada `nodejs/`.
-Con este tipo de separación, las recetas `just` y los guiones escritos en
-JavaScript están en su propio archivo. Una cosa de tomar en cuenta es que por
-esta razón, los variables que se capturan en `just` para usarlos en el guion
-leído en las recetas se tienen que definir antes de leer el archivo con los
-guiones. [Lea más sobre shebangs](#recetas-usando-shebang).
+que los guiones escritos pa' Node.js se ponen en una carpeta nombrada `js/`. Con
+este tipo de separación, las recetas `just` y los guiones escritos en JavaScript
+están en su propio archivo. Una cosa de tomar en cuenta es que por esta razón,
+los variables que se capturan en `just` para usarlos en el guion leído en las
+recetas se tienen que definir antes de leer el archivo con los guiones. [Lea más
+sobre shebangs](#recetas-usando-shebang).
 
 ### Recetas usando shebang
 
@@ -90,8 +90,8 @@ This kind of recipe is written like: `just <module> <recipe> [arguments]`.
 
 Inside this folder, you can organize things any way you want. I recommend
 putting all scripts inside of folders named after the programming language. That
-way scripts written for Node.js are placed inside of `nodejs/`. With this kind
-of separation, the `just` recipes and the JavaScript scripts are stored in their
+way scripts written for Node.js are placed inside of `js/`. With this kind of
+separation, the `just` recipes and the JavaScript scripts are stored in their
 appropriate file. Something to have in mind, variables that are set from `just`
 need to be defined before the script file is read into the recipe. [Read more
 about shebangs](#shebang-recipes).
