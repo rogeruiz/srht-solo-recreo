@@ -16,6 +16,8 @@ casos. Unos ejemplos siguen:
 - Varios ejemplos de guiones tipo haga-nada (do-nothing) que establecen
   practicas para automatización que no esta automatizado ahorra y se puede
   automatizar gradualmente. [Más sobre este tema esta escrito aquí][haga-nada].
+- Tener una manera de saber si una aplicación esta instalada y se puede
+  encontrar en el variable del camino, `$PATH`, en el terminal.
 
 Este proyecto sigue la version mas reciente de `just`: [1.39.0](https://github.com/casey/just/releases/tag/1.39.0)
 
@@ -61,62 +63,41 @@ Este método se usa en las siguiente recetas en este proyecto.
 Este tipo de abstracción es útil pa' las recetas que son reutilizable y las
 recetas se usan pa' configurar opciones pa' cuando se correr la receta.
 
----
+### Recetes de tipo haga-nada
 
-# Just recess
+Los guiones haga-nada son inspirado por [el ensayo de Dan Slimmon sobre el
+tema][haga-nada]. Usando las recetas privadas, `[private]`, se puede combinar
+diferente recetas en una series de pasos. Con este tipo de receta se puede
+empezar la automatización sin el trabajo de actualmente automatizar los pasos.
+Con las recetas haga-nada, se puede minimizar el tiempo pa' ejecutar procesos en
+un equipo. También con este estilo se puede iterar más rápido ciertas partes de
+la automatización mientras los comandos no cambian en el la documentación y el
+proceso de un libro ejecutor (run book).
 
-The repository `solo-recreo` is a lab for the `just` CLI tool. The examples and
-scripts here are different ways to configure projects using `just` for a variety
-of cases. Some examples follow:
+Ejecutar este comando en su terminal para probarlo.
 
-- Creating new files for documentation types like decisions (ADR), run books,
-  and more using templates or patterns.
-- Using a programming language for recipes that use script files written in
-  files separate from the `just` files.
-- Various examples of do-nothing scripts that establish best-practices for
-  automation that is not automated yet and can be further automated gradually.
-  [Read more about this here][haga-nada].
+```sh
+just run-book setup-user "a_user_name"
+```
 
-This project follows the most recent version of `just`: [1.39.0](https://github.com/casey/just/releases/tag/1.39.0)
+Note que las recetas privadas en este ejemplo se pueden remplazar poco a poco
+con varios otros comandos que `just` soporta.
 
-## Architecture
+### Verificando que algo esta instalado
 
-This repository can be used as an live-example for how to organize files and
-recipes for a mature project that utilizes `just`.
+Con la recetas que usan varias herramientas, es importante que verifiquen que
+están instaladas en el camino, `$PATH`, de el terminal que estas usando. El
+módulo `check` y la receta `cli` ayudan para ver si la herramienta esta
+instalada. Si no esta instalada, el segundo parámetro a la receta `cli` se usa
+para proporcionar un enlace para descargar la herramienta desaparecida.
 
-The `just` recipes are written like: `just <recipe> [arguments]`.
+Ejecutar este comando en su terminal para probarlo. Cambie la cadena de texto
+`"zsh"` con un programa que no existe en el camino pa' que falle. Asegúrate de
+cambiar el segundo parámetro para proporcionar las instrucciones de descarga
+para los usuarios que no tengan la herramienta instalada.
 
-The directory `.justscripts/` is used to organize and separate the files that
-you can create to extend `just` functionality using modules to create
-sub-commands. This helps in separating recipes in practical ways.
-
-This kind of recipe is written like: `just <module> <recipe> [arguments]`.
-
-### Folders inside of `.justscripts/`
-
-Inside this folder, you can organize things any way you want. I recommend
-putting all scripts inside of folders named after the programming language. That
-way scripts written for Node.js are placed inside of `js/`. With this kind of
-separation, the `just` recipes and the JavaScript scripts are stored in their
-appropriate file. Something to have in mind, variables that are set from `just`
-need to be defined before the script file is read into the recipe. [Read more
-about shebangs](#shebang-recipes).
-
-### Shebang recipes
-
-For the language folders in `.justscripts/`, the scripts here can be read into
-`just` recipes using the `read()` function added in version `1.39.0`. This
-allows for easy authoring of scripts in the language they're being written in.
-The actual shebang line for the shebang recipes is written within the `just`
-recipe along with any variable definitions that the shebang script is expecting.
-
-This technique is what current powers the following recipes in this project.
-
-- `just new decisions "Title for ADR document"`
-- `just new run-books "Title for run book document"`
-- `just new guides "Title for guide document"`
-
-This kind of abstraction can be used for recipes that are going to be re-used
-and mostly need a way to configure options for the recipe run.
+```sh
+just check cli "zsh" "https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#macos"
+```
 
 [haga-nada]: https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/
