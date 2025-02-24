@@ -35,24 +35,31 @@ alias h := default
 
 # Alias for `new` recipes
 [group('docs')]
-mod n './.justscripts/new.just'
+mod n './.justscripts/just/new.just'
 # Recipes for creating files
 [group('docs')]
-mod new './.justscripts/new.just'
+mod new './.justscripts/just/new.just'
 
 # Alias for `run-book` recipes
 [group('docs')]
-mod rb './.justscripts/run-book.just'
+mod rb './.justscripts/just/run-book.just'
 # Recipes for performing actions within run book documentation
 [group('docs')]
-mod run-book './.justscripts/run-book.just'
+mod run-book './.justscripts/just/run-book.just'
 
 # Alias for `check` recipes'
 [group('utils')]
-mod ch './.justscripts/check.just'
+mod ch './.justscripts/just/check.just'
 # Recipes for checking things
 [group('utils')]
-mod check './.justscripts/check.just'
+mod check './.justscripts/just/check.just'
+
+# Alias for `test` recipes'
+[group('test')]
+mod t './.justscripts/just/test.just'
+# Recipes for checking things
+[group('test')]
+mod test './.justscripts/just/test.just'
 
 [doc('Format justfiles in project using `git`, `grep`, and `just --fmt using `/bin/sh`')]
 [unix]

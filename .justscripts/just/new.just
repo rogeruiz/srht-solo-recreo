@@ -8,7 +8,7 @@ alias g := guides
 
 [private]
 @default:
-    just --list --justfile '{{ justfile_directory() }}/.justscripts/new.just'
+    just --list new
 
 [doc('Create a new decision from the Markdown template found in docs/decisions/.template')]
 [group('docs')]
@@ -20,7 +20,7 @@ alias g := guides
 @run-books title:
     just --justfile {{ justfile() }} new _create "{{ title }}" "run book" "docs/run-books"
 
-[doc('Create a new run book from the Markdown template found in docs/guides/.template')]
+[doc('Create a new guide from the Markdown template found in docs/guides/.template')]
 [group('docs')]
 @guides title:
     just --justfile {{ justfile() }} new _create "{{ title }}" "guide" "docs/guides"
@@ -48,4 +48,4 @@ _create title type folder:
     const type = "{{ type }}"
     const normalizedPath = "{{ replace(justfile_directory(), '\', '/') }}"
     const folderPath = "{{ folder }}"
-    {{ read('./js/create.js') }}
+    {{ read('../js/create.js') }}
