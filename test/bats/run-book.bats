@@ -38,14 +38,19 @@ bats_require_minimum_version 1.5.0
   assert_output --partial '[process]'
   run just rb h
   assert_success
-  assert_output --partial '[alias: rb]'
+  assert_output --partial 'setup-user'
+  refute_output --partial 'run-cmd'
+  refute_output --partial 'build-watch'
+  refute_output --partial 'gwt-user-email'
+  refute_output --partial 'send-private-key'
+  refute_output --partial 'git-commit'
 }
 
-@test "can run just run-book run" {
-  run just run-book run "command"
+@test "can run just run-book run-cmd" {
+  run just run-book run-cmd "command"
   assert_success
   assert_output --partial 'Run:
-  command
+   	command
 '
 }
 

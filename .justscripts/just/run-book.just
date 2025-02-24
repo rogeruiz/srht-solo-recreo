@@ -37,7 +37,7 @@ alias h := default
     printf '###\n'
 
 [private]
-@run cmd:
+@run-cmd cmd:
     printf '%s\n\t%s\n' 'Run:' '{{ cmd }}'
     if test $CI != "true"; then just rb wait; fi
 
@@ -70,7 +70,7 @@ alias h := default
 [doc('Setup a user')]
 [group('process')]
 @setup-user username="yo":
-    just rb run 'ssh-keygen -t rsa -f ~/{{ username }}'
+    just rb run-cmd 'ssh-keygen -t rsa -f ~/{{ username }}'
     just rb git-commit {{ username }}
     just rb build-watch 'https://example.com/builds/user_keys'
     just rb get-user-email {{ username }}
