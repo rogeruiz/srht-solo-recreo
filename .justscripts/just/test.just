@@ -9,21 +9,21 @@ alias b := bats
 @default:
     just -l test
 
-dir := absolute_path("../test")
+dir := absolute_path("../../test/bats")
 tag := "rogeruiz/test-solo-recreo:latest"
 tar_file := "rogeruiz-test-solo-recreo-latest.tar"
 working_dir := "/opt/test"
 # These Go template strings need to be assigned outside of recipes to avoid Just
-# interpreting them as substitutions and unnecessary escaping of curly braces.
+# interpreting them as substitutions and unnecessarly escaping the curly braces.
 find_build_template_str := "{{.Repository}}:{{.Tag}}"
 find_id_template_str := "{{.Id}}"
 
-# Build episync/test-just:latest locally using Docker
+# Build the image locally using Docker
 [private]
 @_bats-build:
     if test -z $( docker images {{ tag }} --format {{ find_build_template_str }} ); then \
       docker build --tag {{ tag }} \
-        --file {{ dir }}/bats.dockerfile \
+        --file {{ dir }}/Dockerfile \
         {{ dir }}; \
     fi
 
