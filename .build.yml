@@ -3,6 +3,7 @@ secrets:
   - 5fd6bbf1-8791-4c37-8e1f-2d423d1c6a12
 packages:
   - docker
+  - containerd
 environment:
   GH_REPO: srht-solo-recreo
   GH_USER: rogeruiz
@@ -16,6 +17,7 @@ tasks:
       tar --directory ~/bin --extract --gzip --file - just
   - test: |
       export PATH="~/bin:$PATH"
+      sudo dockerd
       cd ~/"${SH_REPO}"
       just test bats
   - mirror-to-github: |
