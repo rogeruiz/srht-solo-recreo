@@ -23,6 +23,7 @@ find_id_template_str := "{{.Id}}"
 @_bats-build:
     if test -z $( docker images {{ tag }} --format {{ find_build_template_str }} ); then \
       docker build --tag {{ tag }} \
+        --build-arg CI=$CI \
         --file {{ dir }}/Dockerfile \
         {{ dir }}; \
     fi

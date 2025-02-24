@@ -37,40 +37,40 @@ alias h := default
     printf '###\n'
 
 [private]
-@create-ssh-key cmd:
+@run cmd:
     printf '%s\n\t%s\n' 'Run:' '{{ cmd }}'
-    just rb wait
+    if test $CI != "true"; then just rb wait; fi
 
 [private]
 @git-commit username:
     printf '%s\n' 'Copy ~/new_key.pub into the `user_keys` Git repository, then run:'
     printf '\t%s\n' 'git commit {{ username }}'
     printf '\t%s\n' 'git push'
-    just rb wait
+    if test $CI != "true"; then just rb wait; fi
 
 [private]
 @build-watch url:
     printf 'Wait for this build job to finish: %s\n' '{{ url }}'
-    just rb wait
+    if test $CI != "true"; then just rb wait; fi
 
 [private]
 @get-user-email username:
     printf 'Go to %s:\n' 'https://example.com/directory'
     printf 'Find the email address for user: <%s>.\n' '{{ username }}'
-    printf 'Copy the email address to your clipboard for the next recipe.\n' 
-    just rb wait
+    printf 'Copy the email address to your clipboard for the next step.\n' 
+    if test $CI != "true"; then just rb wait; fi
 
 [private]
 @send-private-key email:
     printf 'Go to 1Password.\n'
     printf 'Paste the contents of ~/new_key into a new document.\n'
     printf 'Share the document with <%s>.\n' '{{ email }}'
-    just rb wait
+    if test $CI != "true"; then just rb wait; fi
 
 [doc('Setup a user')]
 [group('process')]
 @setup-user username="yo":
-    just rb create-ssh-key 'ssh-keygen -t rsa -f ~/{{ username }}'
+    just rb run 'ssh-keygen -t rsa -f ~/{{ username }}'
     just rb git-commit {{ username }}
     just rb build-watch 'https://example.com/builds/user_keys'
     just rb get-user-email {{ username }}

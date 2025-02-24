@@ -34,6 +34,9 @@ RUN \
   coreutils \
   nodejs
 
+ARG CI
+ENV CI=$CI
+
 ARG JUST_VERSION=1.39.0
 
 # Install the necessary tooling that needs to exist for the Just recipes

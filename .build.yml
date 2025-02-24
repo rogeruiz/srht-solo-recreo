@@ -8,6 +8,7 @@ environment:
   GH_REPO: srht-solo-recreo
   GH_USER: rogeruiz
   SH_REPO: solo-recreo
+  CI: true
 tasks:
   - setup: |
       source ~/${SH_REPO}/ci/setup-docker.sh
