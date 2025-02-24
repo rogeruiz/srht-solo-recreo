@@ -55,5 +55,5 @@ bats: (_bats-build)
     docker run -t \
       -v "{{ justfile_directory() }}:{{ working_dir }}" \
       {{ tag }} \
-      {{ working_dir }}/.justscripts/test
+      {{ working_dir }}/test/bats
 
