@@ -1,4 +1,4 @@
-image: alpine/latest
+image: archlinux
 secrets:
   - 5fd6bbf1-8791-4c37-8e1f-2d423d1c6a12
 packages:
