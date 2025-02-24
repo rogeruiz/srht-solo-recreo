@@ -16,6 +16,23 @@ teardown_file() {
   rm -rvf /opt/test/docs/run-books/*-test-a-new-*.md
 }
 
+@test "can run help for just new ..." {
+  run just new help
+  assert_success
+  assert_output --partial '[docs]'
+  assert_output --partial 'decisions'
+  assert_output --partial 'Create a new decision'
+  assert_output --partial 'guides'
+  assert_output --partial 'Create a new guide'
+  assert_output --partial 'run-books'
+  assert_output --partial 'Create a new run book'
+  run just n help
+  assert_success
+  assert_output --partial '[alias: d]'
+  assert_output --partial '[alias: g]'
+  assert_output --partial '[alias: rb]'
+}
+
 @test "creating decisions requires a title argument" {
   run just new decisions
   assert_failure
