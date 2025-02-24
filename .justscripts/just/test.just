@@ -52,7 +52,7 @@ find_id_template_str := "{{.Id}}"
 [doc('Run the test-just suite')]
 [group('test')]
 bats: (_bats-build)
-    docker run -it \
+    docker run -t \
       -v "{{ justfile_directory() }}:{{ working_dir }}" \
       {{ tag }} \
       {{ working_dir }}/.justscripts/test
