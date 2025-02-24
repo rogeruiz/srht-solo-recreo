@@ -1,5 +1,9 @@
 # Just recess
 
+> 👀 **¡Pilas!**
+>
+> Pa' leer esto en [español, haga clic aquí](https://git.sr.ht/~rogeruiz/solo-recreo/tree/main/item/README.md).
+
 The repository `solo-recreo` is a lab for the `just` CLI tool. The examples and
 scripts here are different ways to configure projects using `just` for a variety
 of cases. Some examples follow:
@@ -28,6 +32,22 @@ you can create to extend `just` functionality using modules to create
 sub-commands. This helps in separating recipes in practical ways.
 
 This kind of recipe is written like: `just <module> <recipe> [arguments]`.
+
+### Tests for recipes
+
+This repository has Bats tests inside the `test/bats/` directory that use Docker
+and Bats to have tests that prevent regressions from being added to tested
+recipes. To prevent regressions and more, the project uses the [Bats][bats]
+system to test certain processes and recipes. Run the following command to
+launch the tests inside of a Docker container.
+
+```sh
+>_ just test bats
+```
+
+The architecture for the tests in this playground can be used for any kind of
+project and not just exclusively for `just`. Take that into account when you're
+reading through the source code.
 
 ### Folders inside of `.justscripts/`
 
@@ -92,4 +112,5 @@ tool installed.
 just check cli "zsh" "https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#macos"
 ```
 
-[do-nothing]: https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/
+[do-nothing]: https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/ "Do-nothing scripting – The Key to Gradual Automation"
+[bats]: https://bats-core.readthedocs.io/en/stable/ "The bats-core's documentation"

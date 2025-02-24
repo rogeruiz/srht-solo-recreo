@@ -35,6 +35,22 @@ practica.
 
 Este tipo de receta se escribir así: `just <módulo> <receta> [parámetros]`.
 
+### Ensayos pa' recetas
+
+Este repositorio tiene ensayos Bats adentro de la carpeta `test/bats` que usan a
+Docker y Bats pa' tener ensayos que previenen las adiciones regresivas a las
+recetas. Pa' prevenir esto y más, el proyecto usa el sistema de [Bats][bats]
+para ensayar ciertos procesos y recetas. Ejecute el siguiente comando pa' correr
+los ensayos adentro de un contenedor de Docker.
+
+```sh
+>_ just test bats
+```
+
+La arquitectura de los ensayos de este recreo se pueden usar pa' cualquier tipo
+de proyecto y no son exclusivamente pa' `just`. Tome eso en nota cuando estas
+leyendo la fuente del código.
+
 ### Carpetas adentro de `.justscripts/`
 
 Esta carpeta se puede organizar de cualquier manera. Lo que recomendó es poner
@@ -100,4 +116,5 @@ para los usuarios que no tengan la herramienta instalada.
 just check cli "zsh" "https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#macos"
 ```
 
-[haga-nada]: https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/
+[haga-nada]: https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/ "Guiones que haga-nada – La llave a la automatización gradual"
+[bats]: https://bats-core.readthedocs.io/en/stable/ "La documentación de bats-core"
