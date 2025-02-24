@@ -50,8 +50,7 @@ bats_require_minimum_version 1.5.0
   run just run-book run-cmd "command"
   assert_success
   assert_output --partial 'Run:
-   	command
-'
+	command'
 }
 
 @test "can run just run-book build-watch" {
