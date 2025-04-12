@@ -31,10 +31,11 @@ alias h := default
 @default:
     just --list check
 
-pass_emoji := "✅"
-fail_emoji := "❌"
+bien_emoji := "✅"
+mal_emoji := "❌"
 
-[doc("Checks for CLI tool")]
+# Checks if <app> is installed and if it's not installed provides a <docs> link where it can be downloaded from
+[doc("Comprueba que la <app> esta instalada y si no esta instalada ofrece un enlace <docs> donde se pueda descarga")]
 [unix]
 [group('terminal')]
 cli app docs="https://example.com/docs/install":
@@ -46,9 +47,9 @@ cli app docs="https://example.com/docs/install":
 
     if [[ -x $(which {{ app }}) ]]
     then
-      echo "{{ pass_emoji }} ${italic}\`{{ app }}\`${normal} is ${bold}installed${normal}"
+      echo "{{ bien_emoji }} ${italic}\`{{ app }}\`${normal} is ${bold}installed${normal}"
       exit
     else
-      echo "{{ fail_emoji }} Please install ${italic}\`{{ app }}\`${normal}: ${bold}{{ docs }}${normal}"
+      echo "{{ mal_emoji }} Please install ${italic}\`{{ app }}\`${normal}: ${bold}{{ docs }}${normal}"
       exit 2
     fi
