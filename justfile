@@ -72,3 +72,11 @@ mod test './.justscripts/just/test.just'
 [group('lint')]
 @fmt:
     (git status --porcelain | Select-String -Pattern '^M' -Raw | Select-String -Pattern '[\d\w/\.]*justfile').Matches.Value | ForEach-Object -Process { if ($_) { just.exe --justfile=$_ --fmt --unstable } }
+
+alias diga_hola := say_hello
+
+[unix]
+say_hello users_name:
+    #!/usr/bin/env ruby
+    name = "{{ users_name }}"
+    {{ read('./.justscripts/rb/say.rb') }}
